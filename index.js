@@ -1,5 +1,21 @@
-const https = require('https');
 const axios = require('axios');
+
+// ****************************************
+// Links and Documentation
+// ****************************************
+// 
+// GitHub's API
+// https://developer.github.com/v3/checks/runs/
+// 
+// ProtoBoot
+// https://probot.github.io/docs/webhooks/
+// 
+// Sample PR json
+// https://api.github.com/repos/jquintus/protobot-checklist/pulls/1
+// 
+// Web side proxy that points to my local server
+// https://smee.io/0pLbGsbLGvLlc
+// ****************************************
 
 // Checks API example
 // See: https://developer.github.com/v3/checks/ to learn more
