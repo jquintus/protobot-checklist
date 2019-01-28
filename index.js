@@ -27,7 +27,10 @@ module.exports = app => {
       console.log("body:")
       console.log(lines)
 
-      var matches = body.match("\[\s\s*\]")
+      matches = lines.map(line => line.match(/\[\s\s*\].*/))
+                     .filter(match => match)
+                     .reduce(function(a, b){ return a.concat(b); })
+      // matches = body.match(/\[\s\s*\]/)
 
       if (matches)
       {
@@ -38,11 +41,11 @@ module.exports = app => {
             head_branch,
             head_sha,
             status: 'completed',
-            conclusion: 'failed',
+            conclusion: 'failure',
             completed_at: new Date(),
             output: {
               title: 'Checklist!',
-              summary: matches
+              summary: matches.join("\r\n")
             }
           }))
       }
